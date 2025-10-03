@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6Six Tech - Innovative Solutions for Real-World Problems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .lang-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .lang-button:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 5%;
+            background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #b0b0b0;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.4);
+        }
+
+        .section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .featured-product {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 30px;
+            padding: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-product::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .featured-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .featured-product h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-product p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 25px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .product-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .product-card p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            position: relative;
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 4rem 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .footer p {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .featured-product {
+                padding: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">6Six Tech</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-en="Home" data-pt="Início">Home</a></li>
+                <li><a href="#solutions" data-en="Solutions" data-pt="Soluções">Solutions</a></li>
+                <li><a href="#products" data-en="Products" data-pt="Produtos">Products</a></li>
+                <li><a href="#contact" data-en="Contact" data-pt="Contato">Contact</a></li>
+            </ul>
+            <button class="lang-button" onclick="toggleLanguage()" id="langButton">
+                🇧🇷
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="floating" data-en="Building Tomorrow's<br>Solutions Today" data-pt="Construindo as<br>Soluções do Amanhã">Building Tomorrow's<br>Solutions Today</h1>
+            <p data-en="We develop innovative applications and platforms that transform complex real-world challenges into elegant, efficient solutions." data-pt="Desenvolvemos aplicações e plataformas inovadoras que transformam desafios complexos do mundo real em soluções elegantes e eficientes.">We develop innovative applications and platforms that transform complex real-world challenges into elegant, efficient solutions.</p>
+            <a href="#solutions" class="cta-button" data-en="Explore Our Solutions" data-pt="Explore Nossas Soluções">Explore Our Solutions</a>
+        </div>
+    </section>
+
+    <section id="solutions" class="section">
+        <h2 class="section-title" data-en="Featured Solution" data-pt="Solução em Destaque">Featured Solution</h2>
+        <p class="section-subtitle" data-en="Revolutionizing logistics with intelligent technology" data-pt="Revolucionando a logística com tecnologia inteligente">Revolutionizing logistics with intelligent technology</p>
+
+        <div class="featured-product">
+            <div class="featured-content">
+                <span class="featured-badge" data-en="🚀 FLAGSHIP PRODUCT" data-pt="🚀 PRODUTO PRINCIPAL">🚀 FLAGSHIP PRODUCT</span>
+                <h3>6Six Smart Freights</h3>
+                <p data-en="Transform your e-commerce logistics with our intelligent freight calculation platform. Designed for companies with their own delivery fleets, Smart Freights automatically calculates optimal delivery costs when multiple freight trips are needed to fulfill orders." data-pt="Transforme sua logística de e-commerce com nossa plataforma inteligente de cálculo de fretes. Projetado para empresas com frotas próprias de entrega, o Smart Freights calcula automaticamente os custos ideais de entrega quando múltiplas viagens são necessárias para cumprir os pedidos.">Transform your e-commerce logistics with our intelligent freight calculation platform. Designed for companies with their own delivery fleets, Smart Freights automatically calculates optimal delivery costs when multiple freight trips are needed to fulfill orders.</p>
+                <p data-en="Our advanced algorithm considers numerous variables configured by your admin team, perfectly aligning with your company's unique policies and requirements. The result? Faster checkouts, accurate pricing, and seamless integration with your customized e-commerce platform." data-pt="Nosso algoritmo avançado considera inúmeras variáveis configuradas por sua equipe administrativa, alinhando-se perfeitamente com as políticas e requisitos únicos da sua empresa. O resultado? Checkouts mais rápidos, preços precisos e integração perfeita com sua plataforma de e-commerce personalizada.">Our advanced algorithm considers numerous variables configured by your admin team, perfectly aligning with your company's unique policies and requirements. The result? Faster checkouts, accurate pricing, and seamless integration with your customized e-commerce platform.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4 data-en="Multi-Trip Logic" data-pt="Lógica Multi-Viagem">Multi-Trip Logic</h4>
+                        <p data-en="Intelligent calculation for split deliveries" data-pt="Cálculo inteligente para entregas divididas">Intelligent calculation for split deliveries</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4 data-en="Custom Variables" data-pt="Variáveis Personalizadas">Custom Variables</h4>
+                        <p data-en="Adapt to your specific business rules" data-pt="Adapte-se às suas regras de negócio específicas">Adapt to your specific business rules</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4 data-en="Real-Time Pricing" data-pt="Preços em Tempo Real">Real-Time Pricing</h4>
+                        <p data-en="Instant freight calculations at checkout" data-pt="Cálculos de frete instantâneos no checkout">Instant freight calculations at checkout</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4 data-en="Fleet Optimization" data-pt="Otimização de Frota">Fleet Optimization</h4>
+                        <p data-en="Maximize efficiency of your delivery resources" data-pt="Maximize a eficiência dos seus recursos de entrega">Maximize efficiency of your delivery resources</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="section">
+        <h2 class="section-title" data-en="Our Product Portfolio" data-pt="Nosso Portfólio de Produtos">Our Product Portfolio</h2>
+        <p class="section-subtitle" data-en="Continuous innovation across multiple domains" data-pt="Inovação contínua em múltiplos domínios">Continuous innovation across multiple domains</p>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-icon">🚚</div>
+                <h3>Smart Freights</h3>
+                <p data-en="Advanced freight calculation platform for e-commerce businesses with dedicated delivery fleets. Intelligently handles multi-trip deliveries with customizable variables and business logic." data-pt="Plataforma avançada de cálculo de fretes para empresas de e-commerce com frotas de entrega dedicadas. Gerencia inteligentemente entregas em múltiplas viagens com variáveis personalizáveis e lógica de negócio.">Advanced freight calculation platform for e-commerce businesses with dedicated delivery fleets. Intelligently handles multi-trip deliveries with customizable variables and business logic.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="product-icon">🚗</div>
+                <h3 data-en="Auto Care Tracker" data-pt="Rastreador de Cuidados Automotivos">Auto Care Tracker</h3>
+                <p data-en="Comprehensive vehicle maintenance management app that tracks mileage, maintenance schedules, and predicts upcoming service needs. Keep your vehicle in optimal condition with intelligent reminders and detailed service history." data-pt="Aplicativo abrangente de gerenciamento de manutenção veicular que rastreia quilometragem, cronogramas de manutenção e prevê necessidades futuras de serviço. Mantenha seu veículo em condições ideais com lembretes inteligentes e histórico detalhado de serviços.">Comprehensive vehicle maintenance management app that tracks mileage, maintenance schedules, and predicts upcoming service needs. Keep your vehicle in optimal condition with intelligent reminders and detailed service history.</p>
+            </div>
+
+            <div class="product-card">
+                <div class="product-icon">⚡</div>
+                <h3 data-en="More Coming Soon" data-pt="Mais em Breve">More Coming Soon</h3>
+                <p data-en="At 6Six Tech, we're constantly developing new solutions to tackle real-world problems. Stay tuned as we continue to expand our portfolio with cutting-edge technologies and innovative platforms." data-pt="Na 6Six Tech, estamos constantemente desenvolvendo novas soluções para resolver problemas do mundo real. Fique ligado enquanto continuamos a expandir nosso portfólio com tecnologias de ponta e plataformas inovadoras.">At 6Six Tech, we're constantly developing new solutions to tackle real-world problems. Stay tuned as we continue to expand our portfolio with cutting-edge technologies and innovative platforms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="section-title" data-en="Ready to Transform Your Business?" data-pt="Pronto para Transformar seu Negócio?">Ready to Transform Your Business?</h2>
+        <p class="section-subtitle" data-en="Let's discuss how our solutions can help you achieve your goals" data-pt="Vamos discutir como nossas soluções podem ajudá-lo a alcançar seus objetivos">Let's discuss how our solutions can help you achieve your goals</p>
+        <div style="text-align: center;">
+            <a href="mailto:contact@6sixtech.com" class="cta-button" data-en="Get In Touch" data-pt="Entre em Contato">Get In Touch</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p data-en="&copy; 2025 6Six Tech. All rights reserved. Building solutions that matter." data-pt="&copy; 2025 6Six Tech. Todos os direitos reservados. Construindo soluções que importam.">&copy; 2025 6Six Tech. All rights reserved. Building solutions that matter.</p>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'pt' : 'en';
+            updateContent();
+            updateFlag();
+        }
+
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-en][data-pt]');
+            elements.forEach(el => {
+                const text = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-pt');
+                if (el.tagName === 'A' || el.tagName === 'BUTTON') {
+                    el.textContent = text;
+                } else {
+                    el.innerHTML = text;
+                }
+            });
+        }
+
+        function updateFlag() {
+            const langButton = document.getElementById('langButton');
+            langButton.textContent = currentLang === 'en' ? '🇧🇷' : '🇺🇸';
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card, .featured-product').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
